@@ -7,6 +7,8 @@ import spacy
 nlp = spacy.load('en_core_web_sm', disable=['parser', 'ner'])
 
 def get_repeated_word_map(text: str):
+    """Get repeated words that are not stop words"""
+
     doc = nlp(text)
 
     repeated_words_counter = Counter()
@@ -16,5 +18,5 @@ def get_repeated_word_map(text: str):
             continue
         repeated_words_counter[token.lemma_.lower()] += 1
     
-    print(repeated_words_counter)
+    return repeated_words_counter
     

@@ -1,13 +1,15 @@
-from .repeated_words import get_repeated_word_map
 from .readability import get_readability
-from .utils import get_num_words
-import spacy
+from .repeated_words import get_repeated_word_map
+
 
 def main():
-    nlp = spacy.load('en_core_web_sm', disable=['parser', 'ner'])
-    # get_readability('Let\'s do it')
-    words = get_num_words(nlp('say - no'))
-    print(words)
+    essay = input("Enter essay: ")
+    repeated = get_repeated_word_map(essay)
+    readability = get_readability(essay)
+    
+    print("Repeated words: \n", repeated)
+    print("\nReadability: \n", readability)
 
-if __name__=='__main__':
+
+if __name__ == "__main__":
     main()
