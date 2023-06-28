@@ -1,6 +1,8 @@
 import spacy
 from spacy_syllables import SpacySyllables
 from dataclasses import dataclass
+
+from analyzer.class_utils import JSON
 from .utils import get_num_syllables, get_num_words, get_num_sentences
 
 nlp = spacy.load("en_core_web_sm")
@@ -8,7 +10,7 @@ nlp.add_pipe("syllables", after="tagger")
 
 
 @dataclass
-class Readability:
+class Readability(JSON):
     total_syllables: int
     total_words: int
     total_sentences: int
