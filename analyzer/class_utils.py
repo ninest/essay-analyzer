@@ -2,5 +2,5 @@ import json
 
 
 class JSON:
-    def to_json(self):
-        return json.dumps(self.__dict__)
+    def to_dict(self):
+        return self.__dict__
