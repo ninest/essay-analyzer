@@ -21,12 +21,21 @@ class handler(BaseHTTPRequestHandler):
         readability = get_readability(sentence)
 
         response = {
-            "repeated_words": repeated_words.to_dict(),
+            "repeatedWords": repeated_words.to_dict(),
             "readability": readability.to_dict(),
         }
 
         self.send_response(200)
         self.send_header("Content-type", "application/json")
+        self.send_header(
+            "Access-Control-Allow-Origin", "*"
+        )  # Allow CORS for all origins
+        self.send_header(
+            "Access-Control-Allow-Methods", "GET"
+        )  # Allow only GET requests
+        self.send_header(
+            "Access-Control-Allow-Headers", "Content-type"
+        )  # Allow the Content-type header
         self.end_headers()
         self.wfile.write(json.dumps(response).encode("utf-8"))
         return
