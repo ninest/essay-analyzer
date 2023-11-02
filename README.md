@@ -1,6 +1,6 @@
 # Essay Analyzer
 
-Tools to help improve essays
+Tools to help improve essays. Demo at https://analyzer-one.vercel.app/
 
 ## Development
 
